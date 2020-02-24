@@ -20,6 +20,13 @@ public class PedidosProductosDTO {
 	
 	/**
 	 * Instantiates a new pedidos productos DTO.
+	 */
+	public PedidosProductosDTO() {
+		super();
+	}
+	
+	/**
+	 * Instantiates a new pedidos productos DTO.
 	 *
 	 * @param codpedprod the codpedprod
 	 * @param unidades the unidades

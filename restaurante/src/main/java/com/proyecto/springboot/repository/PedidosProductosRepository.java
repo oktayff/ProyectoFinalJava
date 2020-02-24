@@ -7,5 +7,7 @@ import com.proyecto.springboot.entities.PedidosProductos;
 
 @Repository
 public interface PedidosProductosRepository extends JpaRepository<PedidosProductos, Integer> {
+	
+	
 
 }

@@ -52,6 +52,13 @@ public class Restaurantes implements Serializable {
 	@NotNull
 	@Column(length=200)
 	private String direccion;
+	
+	/**
+	 * Instantiates a new restaurantes.
+	 */
+	public Restaurantes() {
+		super();
+	}
 
 	/**
 	 * Instantiates a new restaurantes.

@@ -14,6 +14,13 @@ public class CategoriasDTO {
 
 	/** The descripcion. */
 	private String descripcion;
+	
+	/**
+	 * Instantiates a new categorias DTO.
+	 */
+	public CategoriasDTO() {
+		super();
+	}
 
 	/**
 	 * Instantiates a new categorias DTO.

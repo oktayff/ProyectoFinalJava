@@ -7,5 +7,7 @@ import com.proyecto.springboot.entities.Restaurantes;
 
 @Repository
 public interface RestaurantesRepository extends JpaRepository<Restaurantes, Integer> {
+	
+	
 
 }

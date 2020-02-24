@@ -45,6 +45,13 @@ public class Productos implements Serializable {
 	/** The categoria. */
 	@NotNull
 	private int fk_codcat;
+	
+	/**
+	 * Instantiates a new productos.
+	 */
+	public Productos() {
+		super();
+	}
 
 	/**
 	 * Instantiates a new productos.

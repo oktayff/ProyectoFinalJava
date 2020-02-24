@@ -26,6 +26,13 @@ public class ProductosDTO {
 	
 	/**
 	 * Instantiates a new productos DTO.
+	 */
+	public ProductosDTO() {
+		super();
+	}
+	
+	/**
+	 * Instantiates a new productos DTO.
 	 *
 	 * @param codprod the codprod
 	 * @param nombre the nombre

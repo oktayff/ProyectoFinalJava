@@ -22,6 +22,13 @@ public class PedidosDTO {
 	
 	/**
 	 * Instantiates a new pedidos DTO.
+	 */
+	public PedidosDTO() {
+		super();
+	}
+	
+	/**
+	 * Instantiates a new pedidos DTO.
 	 *
 	 * @param codped the codped
 	 * @param fecha the fecha

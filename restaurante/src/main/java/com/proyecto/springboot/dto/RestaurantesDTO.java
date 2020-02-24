@@ -29,6 +29,13 @@ public class RestaurantesDTO {
 	
 	/**
 	 * Instantiates a new restaurantes DTO.
+	 */
+	public RestaurantesDTO() {
+		super();
+	}
+	
+	/**
+	 * Instantiates a new restaurantes DTO.
 	 *
 	 * @param codres the codres
 	 * @param correo the correo

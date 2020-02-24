@@ -34,6 +34,13 @@ public class PedidosProductos implements Serializable {
 	/** The fk codprod. */
 	@NotNull
 	private int fk_codprod;
+	
+	/**
+	 * Instantiates a new pedidos productos.
+	 */
+	public PedidosProductos() {
+		super();
+	}
 
 	/**
 	 * Instantiates a new pedidos productos.

@@ -33,6 +33,13 @@ public class Categorias implements Serializable {
 	@NotNull
 	@Column(length=200)
 	private String descripcion;
+	
+	/**
+	 * Instantiates a new categorias.
+	 */
+	public Categorias() {
+		super();
+	}
 
 	/**
 	 * Instantiates a new categorias.
