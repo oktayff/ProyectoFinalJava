@@ -1,13 +1,23 @@
 package com.proyecto.springboot.entities;
 
 import java.io.Serializable;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.sun.istack.NotNull;
+
+/**
+ * The Class Categorias.
+ *
+ * @author Oktay
+ */
 
 // TODO: Auto-generated Javadoc
 /**
@@ -17,11 +27,12 @@ import com.sun.istack.NotNull;
 @Table(name="categorias")
 public class Categorias implements Serializable {
 	
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 	
 	/** The codcat. */
 	@Id
-	@NotNull
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int codcat;
 	
 	/** The nombre. */
@@ -33,6 +44,10 @@ public class Categorias implements Serializable {
 	@NotNull
 	@Column(length=200)
 	private String descripcion;
+	
+	/** The productos. */
+	@OneToMany(mappedBy="codprod")
+    private Set<Productos> productos;
 	
 	/**
 	 * Instantiates a new categorias.
@@ -47,6 +62,22 @@ public class Categorias implements Serializable {
 	 * @param codcat the codcat
 	 * @param nombre the nombre
 	 * @param descripcion the descripcion
+	 * @param productos the productos
+	 */
+	public Categorias(int codcat, String nombre, String descripcion, Set<Productos> productos) {
+		super();
+		this.codcat = codcat;
+		this.nombre = nombre;
+		this.descripcion = descripcion;
+		this.productos = productos;
+	}
+	
+	/**
+	 * Instantiates a new categorias.
+	 *
+	 * @param codcat the codcat
+	 * @param nombre the nombre
+	 * @param descripcion the descripcion
 	 */
 	public Categorias(int codcat, String nombre, String descripcion) {
 		super();
@@ -54,6 +85,19 @@ public class Categorias implements Serializable {
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 	}
+	
+	/**
+	 * Instantiates a new categorias.
+	 *
+	 * @param nombre the nombre
+	 * @param descripcion the descripcion
+	 */
+	public Categorias(String nombre, String descripcion) {
+		super();
+		this.nombre = nombre;
+		this.descripcion = descripcion;
+	}
+
 
 	/**
 	 * Gets the codcat.
@@ -107,6 +151,24 @@ public class Categorias implements Serializable {
 	 */
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
+	}
+
+	/**
+	 * Gets the productos.
+	 *
+	 * @return the productos
+	 */
+	public Set<Productos> getProductos() {
+		return productos;
+	}
+
+	/**
+	 * Sets the productos.
+	 *
+	 * @param productos the new productos
+	 */
+	public void setProductos(Set<Productos> productos) {
+		this.productos = productos;
 	}
 
 	/**

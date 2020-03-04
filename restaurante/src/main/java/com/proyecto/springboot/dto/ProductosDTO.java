@@ -1,34 +1,64 @@
 package com.proyecto.springboot.dto;
 
+import com.proyecto.springboot.entities.Categorias;
+
 // TODO: Auto-generated Javadoc
 /**
  * The Class ProductosDTO.
  */
 public class ProductosDTO {
 	
+	
 	/** The codprod. */
 	private int codprod;
 	
+
 	/** The nombre. */
 	private String nombre;
 	
+
 	/** The descripcion. */
 	private String descripcion;
 	
+
 	/** The peso. */
 	private int peso;
 	
+
 	/** The stock. */
 	private int stock;
 	
-	/** The fk codcat. */
-	private int fk_codcat;
+
+	/** The fkcodcat. */
+	private Categorias fkcodcat;
 	
+
 	/**
 	 * Instantiates a new productos DTO.
 	 */
 	public ProductosDTO() {
 		super();
+	}
+	
+
+	/**
+	 * Instantiates a new productos DTO.
+	 *
+	 * @param codprod the codprod
+	 * @param nombre the nombre
+	 * @param descripcion the descripcion
+	 * @param peso the peso
+	 * @param stock the stock
+	 * @param fkcodcat the fkcodcat
+	 */
+	public ProductosDTO(int codprod, String nombre, String descripcion, int peso, int stock, Categorias fkcodcat) {
+		super();
+		this.codprod = codprod;
+		this.nombre = nombre;
+		this.descripcion = descripcion;
+		this.peso = peso;
+		this.stock = stock;
+		this.fkcodcat = fkcodcat;
 	}
 	
 	/**
@@ -39,17 +69,17 @@ public class ProductosDTO {
 	 * @param descripcion the descripcion
 	 * @param peso the peso
 	 * @param stock the stock
-	 * @param fk_codcat the fk codcat
 	 */
-	public ProductosDTO(int codprod, String nombre, String descripcion, int peso, int stock, int fk_codcat) {
+	public ProductosDTO(int codprod, String nombre, String descripcion, int peso, int stock) {
 		super();
 		this.codprod = codprod;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.peso = peso;
 		this.stock = stock;
-		this.fk_codcat = fk_codcat;
+
 	}
+
 
 	/**
 	 * Gets the codprod.
@@ -69,6 +99,7 @@ public class ProductosDTO {
 		this.codprod = codprod;
 	}
 
+	
 	/**
 	 * Gets the nombre.
 	 *
@@ -96,6 +127,7 @@ public class ProductosDTO {
 		return descripcion;
 	}
 
+	
 	/**
 	 * Sets the descripcion.
 	 *
@@ -105,6 +137,7 @@ public class ProductosDTO {
 		this.descripcion = descripcion;
 	}
 
+	
 	/**
 	 * Gets the peso.
 	 *
@@ -123,6 +156,7 @@ public class ProductosDTO {
 		this.peso = peso;
 	}
 
+	
 	/**
 	 * Gets the stock.
 	 *
@@ -132,6 +166,7 @@ public class ProductosDTO {
 		return stock;
 	}
 
+	
 	/**
 	 * Sets the stock.
 	 *
@@ -141,22 +176,24 @@ public class ProductosDTO {
 		this.stock = stock;
 	}
 
+	
 	/**
-	 * Gets the fk codcat.
+	 * Gets the fkcodcat.
 	 *
-	 * @return the fk codcat
+	 * @return the fkcodcat
 	 */
-	public int getFk_codcat() {
-		return fk_codcat;
+	public Categorias getFkcodcat() {
+		return fkcodcat;
 	}
 
+	
 	/**
-	 * Sets the fk codcat.
+	 * Sets the fkcodcat.
 	 *
-	 * @param fk_codcat the new fk codcat
+	 * @param fkcodcat the new fkcodcat
 	 */
-	public void setFk_codcat(int fk_codcat) {
-		this.fk_codcat = fk_codcat;
+	public void setFkcodcat(Categorias fkcodcat) {
+		this.fkcodcat = fkcodcat;
 	}
 
 	/**
@@ -167,7 +204,7 @@ public class ProductosDTO {
 	@Override
 	public String toString() {
 		return "ProductosDTO [codprod=" + codprod + ", nombre=" + nombre + ", descripcion=" + descripcion + ", peso="
-				+ peso + ", stock=" + stock + ", fk_codcat=" + fk_codcat + "]";
+				+ peso + ", stock=" + stock + ", fkcodcat=" + fkcodcat + "]";
 	}
 	
 }

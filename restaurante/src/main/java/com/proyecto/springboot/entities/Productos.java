@@ -1,13 +1,28 @@
 package com.proyecto.springboot.entities;
 
 import java.io.Serializable;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
 import com.sun.istack.NotNull;
+
+/**
+ * 
+ * @author Oktay
+ * 
+ */
 
 // TODO: Auto-generated Javadoc
 /**
@@ -17,16 +32,17 @@ import com.sun.istack.NotNull;
 @Table(name="productos")
 public class Productos implements Serializable {
 	
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 	
 	/** The codprod. */
 	@Id
-	@NotNull
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int codprod;
 	
 	/** The nombre. */
 	@NotNull
-	@Column(length=45, unique=true)
+	@Column(length=45)
 	private String nombre;
 	
 	/** The descripcion. */
@@ -42,9 +58,15 @@ public class Productos implements Serializable {
 	@NotNull
 	private int stock;
 	
-	/** The categoria. */
-	@NotNull
-	private int fk_codcat;
+	/** The fkcodcat. */
+	@Cascade(CascadeType.MERGE)
+	@ManyToOne
+	@JoinColumn(name="fkcodcat", referencedColumnName="codcat")
+	private Categorias fkcodcat;
+	
+	/** The pedidosproductos. */
+	@OneToMany(mappedBy="fkcodprod")
+	private Set<PedidosProductos> pedidosproductos; 
 	
 	/**
 	 * Instantiates a new productos.
@@ -61,17 +83,59 @@ public class Productos implements Serializable {
 	 * @param descripcion the descripcion
 	 * @param peso the peso
 	 * @param stock the stock
-	 * @param fk_codcat the fk codcat
+	 * @param fkcodcat the fkcodcat
+	 * @param pedidosproductos the pedidosproductos
 	 */
-	public Productos(int codprod, String nombre, String descripcion, int peso, int stock, int fk_codcat) {
+	public Productos(int codprod, String nombre, String descripcion, int peso, int stock, Categorias fkcodcat,
+			Set<PedidosProductos> pedidosproductos) {
 		super();
 		this.codprod = codprod;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.peso = peso;
 		this.stock = stock;
-		this.fk_codcat = fk_codcat;
+		this.fkcodcat = fkcodcat;
+		this.pedidosproductos = pedidosproductos;
 	}
+	
+	/**
+	 * Instantiates a new productos.
+	 *
+	 * @param codprod the codprod
+	 * @param nombre the nombre
+	 * @param descripcion the descripcion
+	 * @param peso the peso
+	 * @param stock the stock
+	 */
+	public Productos(int codprod, String nombre, String descripcion, int peso, int stock) {
+		super();
+		this.codprod = codprod;
+		this.nombre = nombre;
+		this.descripcion = descripcion;
+		this.peso = peso;
+		this.stock = stock;
+
+	}
+	
+	/**
+	 * Instantiates a new productos.
+	 *
+	 * @param nombre the nombre
+	 * @param descripcion the descripcion
+	 * @param peso the peso
+	 * @param stock the stock
+	 * @param fkcodcat the fkcodcat
+	 */
+	public Productos(String nombre, String descripcion, int peso, int stock, Categorias fkcodcat) {
+		super();
+		this.nombre = nombre;
+		this.descripcion = descripcion;
+		this.peso = peso;
+		this.stock = stock;
+		this.fkcodcat = fkcodcat;
+
+	}
+	
 
 	/**
 	 * Gets the codprod.
@@ -164,21 +228,39 @@ public class Productos implements Serializable {
 	}
 
 	/**
-	 * Gets the fk codcat.
+	 * Gets the fkcodcat.
 	 *
-	 * @return the fk codcat
+	 * @return the fkcodcat
 	 */
-	public int getFk_codcat() {
-		return fk_codcat;
+	public Categorias getFkcodcat() {
+		return fkcodcat;
 	}
 
 	/**
-	 * Sets the fk codcat.
+	 * Sets the fkcodcat.
 	 *
-	 * @param fk_codcat the new fk codcat
+	 * @param fkcodcat the new fkcodcat
 	 */
-	public void setFk_codcat(int fk_codcat) {
-		this.fk_codcat = fk_codcat;
+	public void setFkcodcat(Categorias fkcodcat) {
+		this.fkcodcat = fkcodcat;
+	}
+
+	/**
+	 * Gets the pedidos productos.
+	 *
+	 * @return the pedidos productos
+	 */
+	public Set<PedidosProductos> getPedidosProductos() {
+		return pedidosproductos;
+	}
+
+	/**
+	 * Sets the pedidos prod.
+	 *
+	 * @param pedidosproductos the new pedidos prod
+	 */
+	public void setPedidosProd(Set<PedidosProductos> pedidosproductos) {
+		this.pedidosproductos = pedidosproductos;
 	}
 
 	/**
@@ -189,7 +271,7 @@ public class Productos implements Serializable {
 	@Override
 	public String toString() {
 		return "Productos [codprod=" + codprod + ", nombre=" + nombre + ", descripcion=" + descripcion + ", peso="
-				+ peso + ", stock=" + stock + ", fk_codcat=" + fk_codcat + "]";
+				+ peso + ", stock=" + stock + ", fkcodcat=" + fkcodcat + ", pedproductos=" + pedidosproductos + "]";
 	}
 
 }

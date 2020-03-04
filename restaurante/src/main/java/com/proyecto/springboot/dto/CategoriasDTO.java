@@ -6,15 +6,18 @@ package com.proyecto.springboot.dto;
  */
 public class CategoriasDTO {
 
+
 	/** The codcat. */
 	private int codcat;
+
 
 	/** The nombre. */
 	private String nombre;
 
+
 	/** The descripcion. */
 	private String descripcion;
-	
+
 	/**
 	 * Instantiates a new categorias DTO.
 	 */
@@ -22,11 +25,12 @@ public class CategoriasDTO {
 		super();
 	}
 
+
 	/**
 	 * Instantiates a new categorias DTO.
 	 *
-	 * @param codcat      the codcat
-	 * @param nombre      the nombre
+	 * @param codcat the codcat
+	 * @param nombre the nombre
 	 * @param descripcion the descripcion
 	 */
 	public CategoriasDTO(int codcat, String nombre, String descripcion) {
@@ -35,6 +39,16 @@ public class CategoriasDTO {
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 	}
+
+	/**
+	 * Instantiates a new categorias DTO.
+	 *
+	 * @param nombre the nombre
+	 */
+	public CategoriasDTO(String nombre) {
+		this.nombre = nombre;
+	}
+
 
 	/**
 	 * Gets the codcat.
@@ -54,6 +68,7 @@ public class CategoriasDTO {
 		this.codcat = codcat;
 	}
 
+
 	/**
 	 * Gets the nombre.
 	 *
@@ -72,6 +87,7 @@ public class CategoriasDTO {
 		this.nombre = nombre;
 	}
 
+
 	/**
 	 * Gets the descripcion.
 	 *
@@ -80,6 +96,7 @@ public class CategoriasDTO {
 	public String getDescripcion() {
 		return descripcion;
 	}
+
 
 	/**
 	 * Sets the descripcion.

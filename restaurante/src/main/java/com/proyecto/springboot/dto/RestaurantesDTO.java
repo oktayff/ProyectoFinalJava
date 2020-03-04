@@ -9,24 +9,30 @@ public class RestaurantesDTO {
 	/** The codres. */
 	private int codres;
 	
+
 	/** The correo. */
 	private String correo;
 	
+
 	/** The clave. */
 	private String clave;
 	
+
 	/** The pais. */
 	private String pais;
 	
+
 	/** The cp. */
-	private String cp;
+	private int cp;
 	
+
 	/** The ciudad. */
 	private String ciudad;
 	
+
 	/** The direccion. */
 	private String direccion;
-	
+
 	/**
 	 * Instantiates a new restaurantes DTO.
 	 */
@@ -34,6 +40,7 @@ public class RestaurantesDTO {
 		super();
 	}
 	
+
 	/**
 	 * Instantiates a new restaurantes DTO.
 	 *
@@ -45,7 +52,7 @@ public class RestaurantesDTO {
 	 * @param ciudad the ciudad
 	 * @param direccion the direccion
 	 */
-	public RestaurantesDTO(int codres, String correo, String clave, String pais, String cp, String ciudad,
+	public RestaurantesDTO(int codres, String correo, String clave, String pais, int cp, String ciudad,
 			String direccion) {
 		super();
 		this.codres = codres;
@@ -58,6 +65,29 @@ public class RestaurantesDTO {
 	}
 	
 	/**
+	 * Instantiates a new restaurantes DTO.
+	 *
+	 * @param correo the correo
+	 * @param clave the clave
+	 */
+	public RestaurantesDTO(String correo, String clave) {
+
+		this.correo = correo;
+		this.clave = clave;
+
+	}
+	
+	/**
+	 * Instantiates a new restaurantes DTO.
+	 *
+	 * @param codres the codres
+	 */
+	public RestaurantesDTO(int codres) {
+		this.codres = codres;
+	}
+
+	
+	/**
 	 * Gets the codres.
 	 *
 	 * @return the codres
@@ -65,6 +95,7 @@ public class RestaurantesDTO {
 	public int getCodres() {
 		return codres;
 	}
+	
 	
 	/**
 	 * Sets the codres.
@@ -75,6 +106,7 @@ public class RestaurantesDTO {
 		this.codres = codres;
 	}
 	
+	
 	/**
 	 * Gets the correo.
 	 *
@@ -84,6 +116,7 @@ public class RestaurantesDTO {
 		return correo;
 	}
 	
+	
 	/**
 	 * Sets the correo.
 	 *
@@ -92,6 +125,7 @@ public class RestaurantesDTO {
 	public void setCorreo(String correo) {
 		this.correo = correo;
 	}
+	
 	
 	/**
 	 * Gets the clave.
@@ -111,6 +145,7 @@ public class RestaurantesDTO {
 		this.clave = clave;
 	}
 	
+	
 	/**
 	 * Gets the pais.
 	 *
@@ -119,6 +154,7 @@ public class RestaurantesDTO {
 	public String getPais() {
 		return pais;
 	}
+	
 	
 	/**
 	 * Sets the pais.
@@ -129,23 +165,26 @@ public class RestaurantesDTO {
 		this.pais = pais;
 	}
 	
+	
 	/**
 	 * Gets the cp.
 	 *
 	 * @return the cp
 	 */
-	public String getCp() {
+	public int getCp() {
 		return cp;
 	}
+	
 	
 	/**
 	 * Sets the cp.
 	 *
 	 * @param cp the new cp
 	 */
-	public void setCp(String cp) {
+	public void setCp(int cp) {
 		this.cp = cp;
 	}
+	
 	
 	/**
 	 * Gets the ciudad.
@@ -156,6 +195,7 @@ public class RestaurantesDTO {
 		return ciudad;
 	}
 	
+	
 	/**
 	 * Sets the ciudad.
 	 *
@@ -164,6 +204,7 @@ public class RestaurantesDTO {
 	public void setCiudad(String ciudad) {
 		this.ciudad = ciudad;
 	}
+	
 	
 	/**
 	 * Gets the direccion.
@@ -174,6 +215,7 @@ public class RestaurantesDTO {
 		return direccion;
 	}
 	
+	
 	/**
 	 * Sets the direccion.
 	 *
@@ -182,6 +224,7 @@ public class RestaurantesDTO {
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}
+	
 	
 	/**
 	 * To string.

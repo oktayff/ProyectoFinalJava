@@ -5,7 +5,11 @@ import org.springframework.stereotype.Repository;
 
 import com.proyecto.springboot.entities.Pedidos;
 
+/**
+ * The Interface PedidosRepository.
+ */
 @Repository
 public interface PedidosRepository extends JpaRepository<Pedidos, Integer> {
-
+	
+	
 }

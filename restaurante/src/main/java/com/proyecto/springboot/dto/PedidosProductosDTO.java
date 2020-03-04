@@ -9,15 +9,19 @@ public class PedidosProductosDTO {
 	/** The codpedprod. */
 	private int codpedprod;
 	
+
 	/** The unidades. */
 	private int unidades;
 	
-	/** The fk codped. */
-	private int fk_codped;
+
+	/** The fkcodped. */
+	private PedidosDTO fkcodped;
 	
-	/** The fk codprod. */
-	private int fk_codprod;
+
+	/** The fkcodprod. */
+	private ProductosDTO fkcodprod;
 	
+
 	/**
 	 * Instantiates a new pedidos productos DTO.
 	 */
@@ -25,22 +29,36 @@ public class PedidosProductosDTO {
 		super();
 	}
 	
+	
 	/**
 	 * Instantiates a new pedidos productos DTO.
 	 *
 	 * @param codpedprod the codpedprod
 	 * @param unidades the unidades
-	 * @param fk_codped the fk codped
-	 * @param fk_codprod the fk codprod
+	 * @param fkcodped the fkcodped
+	 * @param fkcodprod the fkcodprod
 	 */
-	public PedidosProductosDTO(int codpedprod, int unidades, int fk_codped, int fk_codprod) {
+	public PedidosProductosDTO(int codpedprod, int unidades, PedidosDTO fkcodped, ProductosDTO fkcodprod) {
 		super();
 		this.codpedprod = codpedprod;
 		this.unidades = unidades;
-		this.fk_codped = fk_codped;
-		this.fk_codprod = fk_codprod;
+		this.fkcodped = fkcodped;
+		this.fkcodprod = fkcodprod;
+	}
+	
+	/**
+	 * Instantiates a new pedidos productos DTO.
+	 *
+	 * @param fkcodprod the fkcodprod
+	 * @param unidades the unidades
+	 */
+	public PedidosProductosDTO(ProductosDTO fkcodprod, int unidades) {
+		super();
+		this.fkcodprod = fkcodprod;
+		this.unidades = unidades;
 	}
 
+	
 	/**
 	 * Gets the codpedprod.
 	 *
@@ -68,6 +86,7 @@ public class PedidosProductosDTO {
 		return unidades;
 	}
 
+	
 	/**
 	 * Sets the unidades.
 	 *
@@ -77,40 +96,44 @@ public class PedidosProductosDTO {
 		this.unidades = unidades;
 	}
 
+	
 	/**
-	 * Gets the fk codped.
+	 * Gets the fkcodped.
 	 *
-	 * @return the fk codped
+	 * @return the fkcodped
 	 */
-	public int getFk_codped() {
-		return fk_codped;
+	public PedidosDTO getFkcodped() {
+		return fkcodped;
 	}
 
+	
 	/**
 	 * Sets the fk codped.
 	 *
-	 * @param fk_codped the new fk codped
+	 * @param fkcodped the new fk codped
 	 */
-	public void setFk_codped(int fk_codped) {
-		this.fk_codped = fk_codped;
+	public void setFk_codped(PedidosDTO fkcodped) {
+		this.fkcodped = fkcodped;
 	}
 
+	
 	/**
-	 * Gets the fk codprod.
+	 * Gets the fkcodprod.
 	 *
-	 * @return the fk codprod
+	 * @return the fkcodprod
 	 */
-	public int getFk_codprod() {
-		return fk_codprod;
+	public ProductosDTO getFkcodprod() {
+		return fkcodprod;
 	}
 
+	
 	/**
 	 * Sets the fk codprod.
 	 *
-	 * @param fk_codprod the new fk codprod
+	 * @param fkcodprod the new fk codprod
 	 */
-	public void setFk_codprod(int fk_codprod) {
-		this.fk_codprod = fk_codprod;
+	public void setFk_codprod(ProductosDTO fkcodprod) {
+		this.fkcodprod = fkcodprod;
 	}
 
 	/**
@@ -120,8 +143,8 @@ public class PedidosProductosDTO {
 	 */
 	@Override
 	public String toString() {
-		return "PedidosProductosDTO [codpedprod=" + codpedprod + ", unidades=" + unidades + ", fk_codped=" + fk_codped
-				+ ", fk_codprod=" + fk_codprod + "]";
+		return "PedidosProductosDTO [codpedprod=" + codpedprod + ", unidades=" + unidades + ", fkcodped=" + fkcodped
+				+ ", fkcodprod=" + fkcodprod + "]";
 	}
 
 }

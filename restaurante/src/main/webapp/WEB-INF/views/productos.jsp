@@ -1,15 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1" import="com.proyecto.springboot.dto.RestaurantesDTO"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <title>Productos</title>
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
+	<% RestaurantesDTO user = (RestaurantesDTO) session.getAttribute("user"); %>
+
 	<div class="header">
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -21,18 +23,30 @@
 
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
+					<li class="nav-item"><a class="nav-link"
+						href=verCategorias>Home</a>
+					</li>
 					<li class="nav-item active"><a class="nav-link"
-						href="carrito.jsp">Ver Carrito</a></li>
-					<li class="nav-item"><a class="nav-link"
-						href="listaCategorias.jsp">Lista de categorías</a></li>
-					<li class="nav-item"><a class="nav-link"
-						href="listaCategorias.jsp">Cerrar la sesión</a></li>
+						href=mostrarCarrito>Ver Carrito</a>
+					</li>
+					<li class="nav-item"><%= user.getCorreo()%><a class="nav-link"
+						href=closeSession>Cerrar la sesión</a>
+					</li>
+				</ul>
 			</div>
 		</nav>
 	</div>
 
 	<br>
-
+	
+	<h1 align="center">${categorias.nombre }</h1>
+	
+	<br>
+	
+	<h1 align="center">${categorias.descripcion }</h1>
+	
+	<br>
+	
 	<div class="container text-center">
 		<table class="table table-dark">
 			<thead>
@@ -46,49 +60,21 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<th scope="row">1</th>
-					<td>Mark</td>
-					<td>Otto</td>
-					<td>@mdo</td>
-					<td><select id="numProd">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-					</select></td>
-					<td><button class="btn btn-primary" type="submit"
-							name="comprar">Comprar</button></td>
-				</tr>
-				<tr>
-					<th scope="row">2</th>
-					<td>Jacob</td>
-					<td>Thornton</td>
-					<td>@fat</td>
-					<td><select id="numProd">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-					</select></td>
-					<td><button class="btn btn-primary" type="submit"
-							name="comprar">Comprar</button></td>
-				</tr>
-				<tr>
-					<th scope="row">3</th>
-					<td>Larry</td>
-					<td>the Bird</td>
-					<td>@twitter</td>
-					<td><select id="numProd">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-					</select></td>
-
-					<td><button class="btn btn-primary" type="submit"
-							name="comprar">Comprar</button></td>
-				</tr>
+				<c:forEach var="producto" items="${productos}">
+					<form action=anadirProducto method="POST">
+						<input type="text" name="idCategoria" value="${categorias.codcat }" hidden="hidden">
+						<input type="text" name="nombreCategoria" value="${categorias.nombre }" hidden="hidden">
+						<input type="text" name="descripcionCategoria" value="${categorias.descripcion }" hidden="hidden">
+							<tr>
+								<td><input type="text" name="id" value="${producto.codprod }" hidden="hidden"><input type="text" name="nombre" value="${producto.nombre }" readonly="readonly"></td>
+								<td><input type="text" name="descripcion" value="${producto.descripcion }" readonly="readonly"></td>
+								<td><input type="text" name="peso" value="${producto.peso }" readonly="readonly"></td>
+								<td><input type="text" name="stock" value="${producto.stock }" readonly="readonly"></td>
+								<td><input type="number" name="unidades" min=1 max="${producto.stock }"></td>
+								<td><button class="btn btn-success" type="submit" name="comprar">Comprar</button></td>
+							</tr>
+					</form>
+				</c:forEach>
 			</tbody>
 		</table>
 	</div>

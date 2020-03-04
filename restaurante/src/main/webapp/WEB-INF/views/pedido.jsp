@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<title>Lista de categorias</title>
+<title>Productos</title>
 </head>
 <body>
 	<% RestaurantesDTO user = (RestaurantesDTO) session.getAttribute("user"); %>
@@ -38,14 +38,9 @@
 	</div>
 
 	<br>
+	
+	${msg }
 
-	 <ul class="list-group" align="center">
-	  	<c:forEach var="categoria" items="${categorias}">
-			<a href="productosCategoria?id=${categoria.codcat}&nombre=${categoria.nombre}&descripcion=${categoria.descripcion}"><li class="list-group-item">${categoria.nombre}</li></a>
-		</c:forEach>
-	</ul>
-	
-	
 	<script
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>

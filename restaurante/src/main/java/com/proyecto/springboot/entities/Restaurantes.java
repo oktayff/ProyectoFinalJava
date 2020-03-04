@@ -1,13 +1,23 @@
 package com.proyecto.springboot.entities;
 
 import java.io.Serializable;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.sun.istack.NotNull;
+
+/**
+ * 
+ * @author Oktay
+ * 
+ */
 
 // TODO: Auto-generated Javadoc
 /**
@@ -17,11 +27,12 @@ import com.sun.istack.NotNull;
 @Table(name="restaurantes")
 public class Restaurantes implements Serializable {
 	
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 	
 	/** The codres. */
 	@Id
-	@NotNull
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int codres;
 	
 	/** The correo. */
@@ -53,6 +64,10 @@ public class Restaurantes implements Serializable {
 	@Column(length=200)
 	private String direccion;
 	
+	/** The pedidos. */
+	@OneToMany(mappedBy="fkcodres")
+	private Set<Pedidos> pedidos;
+	
 	/**
 	 * Instantiates a new restaurantes.
 	 */
@@ -70,9 +85,10 @@ public class Restaurantes implements Serializable {
 	 * @param cp the cp
 	 * @param ciudad the ciudad
 	 * @param direccion the direccion
+	 * @param pedidos the pedidos
 	 */
-	public Restaurantes(int codres, String correo, String clave, String pais, int cp, String ciudad,
-			String direccion) {
+	public Restaurantes(int codres, String correo, String clave, String pais, int cp, String ciudad, String direccion,
+			Set<Pedidos> pedidos) {
 		super();
 		this.codres = codres;
 		this.correo = correo;
@@ -81,6 +97,50 @@ public class Restaurantes implements Serializable {
 		this.cp = cp;
 		this.ciudad = ciudad;
 		this.direccion = direccion;
+		this.pedidos = pedidos;
+	}
+	
+	/**
+	 * Instantiates a new restaurantes.
+	 *
+	 * @param codres the codres
+	 * @param correo the correo
+	 * @param clave the clave
+	 * @param pais the pais
+	 * @param cp the cp
+	 * @param ciudad the ciudad
+	 * @param direccion the direccion
+	 */
+	public Restaurantes(int codres, String correo, String clave, String pais, int cp, String ciudad, String direccion) {
+		this.codres = codres;
+		this.correo = correo;
+		this.clave = clave;
+		this.pais = pais;
+		this.cp = cp;
+		this.ciudad = ciudad;
+		this.direccion = direccion;
+	}
+	
+	/**
+	 * Instantiates a new restaurantes.
+	 *
+	 * @param correo the correo
+	 * @param clave the clave
+	 */
+	public Restaurantes(String correo, String clave) {
+		super();
+		this.correo = correo;
+		this.clave = clave;
+
+	}
+	
+	/**
+	 * Instantiates a new restaurantes.
+	 *
+	 * @param codres the codres
+	 */
+	public Restaurantes(int codres) {
+		this.codres = codres;
 	}
 
 	/**
@@ -207,6 +267,24 @@ public class Restaurantes implements Serializable {
 	 */
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
+	}
+
+	/**
+	 * Gets the pedidos.
+	 *
+	 * @return the pedidos
+	 */
+	public Set<Pedidos> getPedidos() {
+		return pedidos;
+	}
+
+	/**
+	 * Sets the pedidos.
+	 *
+	 * @param pedidos the new pedidos
+	 */
+	public void setPedidos(Set<Pedidos> pedidos) {
+		this.pedidos = pedidos;
 	}
 
 	/**

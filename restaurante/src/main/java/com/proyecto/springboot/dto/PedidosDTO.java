@@ -1,6 +1,7 @@
 package com.proyecto.springboot.dto;
 
 import java.util.Date;
+import com.proyecto.springboot.entities.Restaurantes;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -8,18 +9,22 @@ import java.util.Date;
  */
 public class PedidosDTO {
 
+
 	/** The codped. */
 	private int codped;
 	
+
 	/** The fecha. */
 	private Date fecha;
 	
+
 	/** The enviado. */
 	private int enviado;
 	
 	/** The fk codres. */
-	private int fk_codres;
+	private Restaurantes fk_codres;
 	
+
 	/**
 	 * Instantiates a new pedidos DTO.
 	 */
@@ -27,6 +32,7 @@ public class PedidosDTO {
 		super();
 	}
 	
+
 	/**
 	 * Instantiates a new pedidos DTO.
 	 *
@@ -35,12 +41,26 @@ public class PedidosDTO {
 	 * @param enviado the enviado
 	 * @param fk_codres the fk codres
 	 */
-	public PedidosDTO(int codped, Date fecha, int enviado, int fk_codres) {
+	public PedidosDTO(int codped, Date fecha, int enviado, Restaurantes fk_codres) {
 		super();
 		this.codped = codped;
 		this.fecha = fecha;
 		this.enviado = enviado;
 		this.fk_codres = fk_codres;
+	}
+	
+	/**
+	 * Instantiates a new pedidos DTO.
+	 *
+	 * @param enviado the enviado
+	 * @param fecha the fecha
+	 * @param fk_codres the fk codres
+	 */
+	public PedidosDTO(int enviado, Date fecha, Restaurantes fk_codres) {
+		this.enviado = enviado;
+		this.fecha = fecha;
+		this.fk_codres = fk_codres;
+		
 	}
 
 	/**
@@ -51,6 +71,7 @@ public class PedidosDTO {
 	public int getCodped() {
 		return codped;
 	}
+
 
 	/**
 	 * Sets the codped.
@@ -79,6 +100,7 @@ public class PedidosDTO {
 		this.fecha = fecha;
 	}
 
+
 	/**
 	 * Gets the enviado.
 	 *
@@ -87,6 +109,7 @@ public class PedidosDTO {
 	public int getEnviado() {
 		return enviado;
 	}
+
 
 	/**
 	 * Sets the enviado.
@@ -102,16 +125,17 @@ public class PedidosDTO {
 	 *
 	 * @return the fk codres
 	 */
-	public int getFk_codres() {
+	public Restaurantes getFk_codres() {
 		return fk_codres;
 	}
+
 
 	/**
 	 * Sets the fk codres.
 	 *
 	 * @param fk_codres the new fk codres
 	 */
-	public void setFk_codres(int fk_codres) {
+	public void setFk_codres(Restaurantes fk_codres) {
 		this.fk_codres = fk_codres;
 	}
 
